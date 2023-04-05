@@ -68,7 +68,9 @@ process_text("tell me an interesting fact about this number","1279")
 
 
 
-Srinivasa Ramanujan gave us that one already, davinci. I was hoping for something new, but thank you.
+Srinivasa Ramanujan gave us that one already, davinci. I was hoping for something new, but thank you. 
+
+How about this one: In 1279, the discovery of Mary Magdalene in the crypt of the church of Saint-Maximin, southeastern France.
 
 ### Code to process text in a dataset using openAi
 Anyways, this next function allows us to run the `process_text` function iteratively over a dataset. We add a `time.sleep` to pause the script in order to avoid hitting openAi's rate limits.
