@@ -567,4 +567,4 @@ process_text('translate the text field in this dataset into french', ksgm)
 
 
 
-This method is quicker than the iterative process above, though given that the output of these models is subject to change, I do not feel confident building code dependent on these outputs. We are at a crawling phase with these models.
+This method is quicker than the iterative process above, though given that the output of these models is subject to change, I do not feel confident building code dependent on these outputs. Developmentally, we are still at a crawling phase with these models.
