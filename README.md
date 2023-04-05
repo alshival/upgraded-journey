@@ -1,5 +1,5 @@
 # upgraded-journey
-Data Science Tips/Tricks
+Data Science & Analytics Tips/Tricks
 
 # Large Language Models: An Application in Data Processing
 
