@@ -39,10 +39,10 @@ This next function is something I put together quickly. It is a wrapper to speed
 
 
 ```python
-def process_text(command,text):
+def process_text(command,data):
     response = openai.Completion.create(
         model="text-davinci-003",
-        prompt=f"""Q: {command}:"{text}"\nA:""",
+        prompt=f"""Q: {command}:"{data}"\nA:""",
         temperature=.5,
         max_tokens=120,
         top_p=.5,
@@ -63,6 +63,8 @@ process_text("tell me an interesting fact about this number","1279")
 
 
     ' 1279 is the smallest number that can be written as the sum of two cubes in two different ways: 1279 = 13^3 + 10^3 = 9^3 + 12^3.'
+
+
 
 
 
@@ -516,3 +518,53 @@ process_data('translate this into french',ksgm)
 
 
 Note that I left out the `input_var` variable. This is because in the function definition for `process_data`, you will see that `input_var='text'`, which happens to be the name of the column that I wish to process.
+
+# Example 3: Data Insight
+
+The process_text function is more verstatile than you think. It returns the text response from openAi's algorithm.
+
+You can the `process_text` function an entire dataset as well in order to gain insight.
+
+
+```python
+print(data)
+print('\n')
+process_text('classify the item field in this dataset',data)
+```
+
+       id     item
+    0   1      cat
+    1   2      pen
+    2   3  whistle
+    3   4   orchid
+    4   5  Jupiter
+    5   6      car
+    6   7      dog
+    7   8     book
+    8   9    lotus
+    
+    
+
+
+
+
+
+    ' item: animal (cat, dog), stationary (pen), instrument (whistle), planet (Jupiter), vehicle (car), plant (orchid, lotus), object (book)'
+
+
+
+We could have also done the same with the KSGM dataset.
+
+
+```python
+process_text('translate the text field in this dataset into french', ksgm)
+```
+
+
+
+
+    ' index testament livre titre chapitre verset texte version langue\n0      0        NT   777  Évangile de Marie-Madeleine        1      0   \n1      1        NT   777  Évangile de Marie-Madeleine        1      1   \n2      2        NT   777  Évangile de Marie-Madeleine        1      2   \n3      3        NT   777  Évangile de Marie-Madeleine        1      3   \n4      4        NT   777'
+
+
+
+This method is quicker than the iterative process above, though given that the output of these models is subject to change, I do not feel confident building code dependent on these outputs. We are at a crawling phase with these models.
