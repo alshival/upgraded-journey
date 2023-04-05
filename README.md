@@ -511,7 +511,7 @@ You can use the `process_text` function on a pandas dataframe in order to gain i
 ```python
 print(data)
 print('\n')
-process_text('classify the item field in this dataset',data)
+process_text('classify the items in this dataset',data)
 ```
 
        id     item
@@ -525,7 +525,7 @@ process_text('classify the item field in this dataset',data)
     7   8     book
     8   9    lotus
 
-    ' The item field in this dataset is classified as objects.'
+    ' Animals: cat, dog\nStationery: pen\nInstruments: whistle\nPlants: orchid, lotus\nPlanets: Jupiter\nVehicles: car\nObjects: book'
 
 
 
