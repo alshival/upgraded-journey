@@ -62,7 +62,7 @@ process_text("tell me an interesting fact about this number","1279")
 
 
 
-    ' 1279 is the smallest prime number that can be written as the sum of two cubes in two different ways: 1279 = 13^3 + 10^3 = 9^3 + 16^3.'
+    ' 1279 is the smallest number that can be written as the sum of two cubes in two different ways: 1279 = 13^3 + 10^3 = 9^3 + 12^3.'
 
 
 
@@ -83,7 +83,7 @@ def process_data(command,data,input_var='text',output_var='response'):
         
         time.sleep(2)
         
-    return pd.concat([data.reset_index(),pd.DataFrame({output_var:outputs})],axis=1)
+    return pd.concat([data,pd.DataFrame({output_var:outputs})],axis=1)
 ```
 
 This last function is extremely useful. Let's look at a few examples.
@@ -102,19 +102,6 @@ data
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -186,24 +173,10 @@ process_data('classify this as either animal, flower, planet, or other',data,inp
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>id</th>
       <th>item</th>
       <th>response</th>
@@ -212,63 +185,54 @@ process_data('classify this as either animal, flower, planet, or other',data,inp
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>1</td>
       <td>cat</td>
       <td>Animal</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>2</td>
       <td>pen</td>
       <td>Other</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>3</td>
       <td>whistle</td>
       <td>Other</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>4</td>
       <td>orchid</td>
       <td>Flower</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>5</td>
       <td>Jupiter</td>
       <td>Planet</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>5</td>
       <td>6</td>
       <td>car</td>
       <td>Other</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>6</td>
       <td>7</td>
       <td>dog</td>
       <td>Animal</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>7</td>
       <td>8</td>
       <td>book</td>
       <td>Other</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>8</td>
       <td>9</td>
       <td>lotus</td>
       <td>Flower</td>
@@ -279,7 +243,7 @@ process_data('classify this as either animal, flower, planet, or other',data,inp
 
 
 
-# Translating Text
+# Example 2: Translating Text
 
 Though openAi's davinci can translate text into a variety of languages, it does make mistakes which will require some manual intervention to fix, though when you have so many lines of text that need translating, a rough sketch of a translation can help speed up the process.
 
@@ -295,19 +259,6 @@ ksgm
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -437,24 +388,10 @@ process_data('translate this into french',ksgm)
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>level_0</th>
       <th>index</th>
       <th>testament</th>
       <th>book</th>
@@ -471,7 +408,6 @@ process_data('translate this into french',ksgm)
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>0</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -480,11 +416,10 @@ process_data('translate this into french',ksgm)
       <td>[Pages 1 through 6 are missing]</td>
       <td>KSGM</td>
       <td>EN</td>
-      <td>Les pages 1 à 6 manquent.</td>
+      <td>"[Les pages 1 à 6 manquent.]"</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>1</td>
       <td>NT</td>
       <td>777</td>
@@ -499,7 +434,6 @@ process_data('translate this into french',ksgm)
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>2</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -512,7 +446,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>3</td>
       <td>NT</td>
       <td>777</td>
@@ -527,7 +460,6 @@ process_data('translate this into french',ksgm)
     <tr>
       <th>4</th>
       <td>4</td>
-      <td>4</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -536,11 +468,10 @@ process_data('translate this into french',ksgm)
       <td>Peter said to Him: ``As you have told us all a...</td>
       <td>KSGM</td>
       <td>EN</td>
-      <td>Pierre lui a dit : « Comme vous nous avez tou...</td>
+      <td>Peter lui a dit : « Comme vous nous avez tout...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>5</td>
       <td>5</td>
       <td>NT</td>
       <td>777</td>
@@ -555,7 +486,6 @@ process_data('translate this into french',ksgm)
     <tr>
       <th>6</th>
       <td>6</td>
-      <td>6</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -568,7 +498,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>7</th>
-      <td>7</td>
       <td>7</td>
       <td>NT</td>
       <td>777</td>
