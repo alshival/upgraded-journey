@@ -62,7 +62,7 @@ process_text("tell me an interesting fact about this number","1279")
 
 
 
-    ' 1279 is the smallest number that can be written as the sum of two cubes in two different ways: 1279 = 13^3 + 10^3 = 9^3 + 12^3.'
+    ' 1279 is the smallest number that can be written as the sum of two cubes in two different ways: 1279 = 13^3 + 10^3 = 9^3 + 18^3.'
 
 
 
@@ -253,7 +253,7 @@ For this example, let's look at the first 8 lines of King Samuel's Gospel of Mar
 
 
 ```python
-ksgm = pd.read_csv('ksgm.csv').head(8)
+ksgm = pd.read_csv('super_bible_KSGM.csv').head(8)
 ksgm
 ```
 
@@ -265,7 +265,6 @@ ksgm
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>testament</th>
       <th>book</th>
       <th>title</th>
@@ -279,7 +278,6 @@ ksgm
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -291,7 +289,6 @@ ksgm
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -303,7 +300,6 @@ ksgm
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -315,7 +311,6 @@ ksgm
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -327,7 +322,6 @@ ksgm
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -339,7 +333,6 @@ ksgm
     </tr>
     <tr>
       <th>5</th>
-      <td>5</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -351,7 +344,6 @@ ksgm
     </tr>
     <tr>
       <th>6</th>
-      <td>6</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -363,7 +355,6 @@ ksgm
     </tr>
     <tr>
       <th>7</th>
-      <td>7</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -394,7 +385,6 @@ process_data('translate this into french',ksgm)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>index</th>
       <th>testament</th>
       <th>book</th>
       <th>title</th>
@@ -409,7 +399,6 @@ process_data('translate this into french',ksgm)
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -418,11 +407,10 @@ process_data('translate this into french',ksgm)
       <td>[Pages 1 through 6 are missing]</td>
       <td>KSGM</td>
       <td>EN</td>
-      <td>"[Les pages 1 à 6 manquent.]"</td>
+      <td>Les pages 1 à 6 manquent.</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -435,7 +423,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -448,7 +435,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>3</th>
-      <td>3</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -461,7 +447,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>4</th>
-      <td>4</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -470,11 +455,10 @@ process_data('translate this into french',ksgm)
       <td>Peter said to Him: ``As you have told us all a...</td>
       <td>KSGM</td>
       <td>EN</td>
-      <td>Peter lui a dit : « Comme vous nous avez tout...</td>
+      <td>Pierre lui a dit : « Comme vous nous avez tou...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>5</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -487,7 +471,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>6</th>
-      <td>6</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -500,7 +483,6 @@ process_data('translate this into french',ksgm)
     </tr>
     <tr>
       <th>7</th>
-      <td>7</td>
       <td>NT</td>
       <td>777</td>
       <td>Gospel of Mary Magdalene</td>
@@ -521,9 +503,9 @@ Note that I left out the `input_var` variable. This is because in the function d
 
 # Example 3: Data Insight
 
-The process_text function is more verstatile than you think. It returns the text response from openAi's algorithm.
+The `process_text` function is more verstatile than you think. It returns the text response from openAi's algorithm.
 
-You can the `process_text` function an entire dataset as well in order to gain insight.
+You can use the `process_text` function on a pandas dataframe in order to gain insight.
 
 
 ```python
@@ -542,14 +524,8 @@ process_text('classify the item field in this dataset',data)
     6   7      dog
     7   8     book
     8   9    lotus
-    
-    
 
-
-
-
-
-    ' item: animal (cat, dog), stationary (pen), instrument (whistle), planet (Jupiter), vehicle (car), plant (orchid, lotus), object (book)'
+    ' The item field in this dataset is classified as objects.'
 
 
 
@@ -557,15 +533,13 @@ We could have also done the same with the KSGM dataset.
 
 
 ```python
-process_text('translate the text field in this dataset into french', ksgm)
+process_text('translate the field called text in this dataset into french', ksgm)
 ```
 
 
 
 
-```
-index testament livre titre chapitre verset texte version langue\n0      0        NT   777  Évangile de Marie-Madeleine        1      0   \n1      1        NT   777  Évangile de Marie-Madeleine        1      1   \n2      2        NT   777  Évangile de Marie-Madeleine        1      2   \n3      3        NT   777  Évangile de Marie-Madeleine        1      3   \n4      4        NT   777'
-```
+    ' le champ appelé texte dans ce jeu de données en français: "testament livre titre chapitre verset\n0        NT   777  Évangile de Marie Madeleine        1      0   \n1        NT   777  Évangile de Marie Madeleine        1      1   \n2        NT   777  Évangile de Marie Madeleine        1      2   \n3        NT   777  Évangile de Marie Madeleine        1      3   \n'
 
 
 
