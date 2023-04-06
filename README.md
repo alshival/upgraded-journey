@@ -25,8 +25,6 @@ import regex
 import csv
 import pandas as pd
 import openai
-import json
-import sqlite3
 import time
 import os
 
